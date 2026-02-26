@@ -65,7 +65,11 @@ Each use case includes 12 portfolio artifacts (PRD, strategy brief, architecture
 - **First/Last 20% Rule** - AI handles ingestion and alerting; PM handles strategic decisions
 - **Level 2 Today, Level 3 Ready** - Classifies and summarizes now; architecture supports autonomous action
 
-## Getting Started
+## Live Demo
+
+**[https://customer-intelligence-engine.vercel.app/](https://customer-intelligence-engine.vercel.app/)**
+
+## Run Locally
 
 ```bash
 npm install
