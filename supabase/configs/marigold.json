@@ -1,0 +1,54 @@
+{
+  "company": "Marigold",
+  "description": "Marketing technology platform (40K+ customers, acquired by Zeta Global)",
+  "products": [
+    {
+      "name": "Sailthru",
+      "slug": "sailthru",
+      "company_type": "own",
+      "g2_url": "https://www.g2.com/products/sailthru/reviews",
+      "capterra_url": "https://www.capterra.com/p/132396/Sailthru/",
+      "reddit_query": "sailthru email marketing"
+    },
+    {
+      "name": "Cheetah Digital",
+      "slug": "cheetah-digital",
+      "company_type": "own",
+      "g2_url": "https://www.g2.com/products/cheetah-digital/reviews",
+      "capterra_url": "https://www.capterra.com/p/178553/Cheetah-Digital/",
+      "reddit_query": "cheetah digital marketing"
+    },
+    {
+      "name": "Selligent",
+      "slug": "selligent",
+      "company_type": "own",
+      "g2_url": "https://www.g2.com/products/selligent-marketing-cloud/reviews",
+      "capterra_url": "https://www.capterra.com/p/183749/Selligent/",
+      "reddit_query": "selligent marketing automation"
+    },
+    {
+      "name": "Braze",
+      "slug": "braze",
+      "company_type": "competitor",
+      "g2_url": "https://www.g2.com/products/braze/reviews",
+      "capterra_url": "https://www.capterra.com/p/181840/Braze/",
+      "reddit_query": "braze customer engagement"
+    },
+    {
+      "name": "Klaviyo",
+      "slug": "klaviyo",
+      "company_type": "competitor",
+      "g2_url": "https://www.g2.com/products/klaviyo/reviews",
+      "capterra_url": "https://www.capterra.com/p/170993/Klaviyo/",
+      "reddit_query": "klaviyo email marketing"
+    },
+    {
+      "name": "Iterable",
+      "slug": "iterable",
+      "company_type": "competitor",
+      "g2_url": "https://www.g2.com/products/iterable/reviews",
+      "capterra_url": "https://www.capterra.com/p/167753/Iterable/",
+      "reddit_query": "iterable marketing automation"
+    }
+  ]
+}
