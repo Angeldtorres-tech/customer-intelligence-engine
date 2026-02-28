@@ -36,6 +36,8 @@ export type Theme = {
   top_product_id: string;
   classification: "feature_request" | "pain_point" | "praise" | "churn_risk";
   last_updated: string;
+  arr_impact: number; // Revenue impact in dollars from accounts mentioning this theme
+  affected_accounts: number; // Number of unique accounts surfacing this theme
   sentiment_history: { week: string; score: number }[];
   source_breakdown: { source: FeedbackSource; count: number }[];
 };
@@ -113,6 +115,8 @@ export const themes: Theme[] = [
     top_product_id: "sailthru",
     classification: "pain_point",
     last_updated: "2026-02-22",
+    arr_impact: 840000,
+    affected_accounts: 12,
     sentiment_history: [
       { week: "W4 Jan", score: 0.55 },
       { week: "W1 Feb", score: 0.51 },
@@ -137,6 +141,8 @@ export const themes: Theme[] = [
     top_product_id: "cheetah",
     classification: "pain_point",
     last_updated: "2026-02-21",
+    arr_impact: 2400000,
+    affected_accounts: 8,
     sentiment_history: [
       { week: "W4 Jan", score: 0.45 },
       { week: "W1 Feb", score: 0.43 },
@@ -161,6 +167,8 @@ export const themes: Theme[] = [
     top_product_id: "sailthru",
     classification: "praise",
     last_updated: "2026-02-22",
+    arr_impact: 1800000,
+    affected_accounts: 15,
     sentiment_history: [
       { week: "W4 Jan", score: 0.63 },
       { week: "W1 Feb", score: 0.66 },
@@ -185,6 +193,8 @@ export const themes: Theme[] = [
     top_product_id: "cheetah",
     classification: "feature_request",
     last_updated: "2026-02-20",
+    arr_impact: 520000,
+    affected_accounts: 6,
     sentiment_history: [
       { week: "W4 Jan", score: 0.34 },
       { week: "W1 Feb", score: 0.36 },
@@ -209,6 +219,8 @@ export const themes: Theme[] = [
     top_product_id: "selligent",
     classification: "feature_request",
     last_updated: "2026-02-22",
+    arr_impact: 3200000,
+    affected_accounts: 18,
     sentiment_history: [
       { week: "W4 Jan", score: 0.50 },
       { week: "W1 Feb", score: 0.53 },
@@ -233,6 +245,8 @@ export const themes: Theme[] = [
     top_product_id: "cheetah",
     classification: "churn_risk",
     last_updated: "2026-02-21",
+    arr_impact: 4100000,
+    affected_accounts: 9,
     sentiment_history: [
       { week: "W4 Jan", score: 0.35 },
       { week: "W1 Feb", score: 0.33 },
@@ -257,6 +271,8 @@ export const themes: Theme[] = [
     top_product_id: "sailthru",
     classification: "feature_request",
     last_updated: "2026-02-19",
+    arr_impact: 1200000,
+    affected_accounts: 11,
     sentiment_history: [
       { week: "W4 Jan", score: 0.44 },
       { week: "W1 Feb", score: 0.46 },
@@ -281,6 +297,8 @@ export const themes: Theme[] = [
     top_product_id: "selligent",
     classification: "pain_point",
     last_updated: "2026-02-20",
+    arr_impact: 960000,
+    affected_accounts: 5,
     sentiment_history: [
       { week: "W4 Jan", score: 0.33 },
       { week: "W1 Feb", score: 0.36 },
@@ -305,6 +323,8 @@ export const themes: Theme[] = [
     top_product_id: "selligent",
     classification: "pain_point",
     last_updated: "2026-02-18",
+    arr_impact: 380000,
+    affected_accounts: 4,
     sentiment_history: [
       { week: "W4 Jan", score: 0.30 },
       { week: "W1 Feb", score: 0.31 },
@@ -329,6 +349,8 @@ export const themes: Theme[] = [
     top_product_id: "sailthru",
     classification: "praise",
     last_updated: "2026-02-19",
+    arr_impact: 650000,
+    affected_accounts: 7,
     sentiment_history: [
       { week: "W4 Jan", score: 0.55 },
       { week: "W1 Feb", score: 0.57 },

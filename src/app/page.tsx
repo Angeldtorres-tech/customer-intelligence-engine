@@ -18,7 +18,7 @@ import {
   AlertTriangle,
   AlertCircle,
   Info,
-  Target,
+  DollarSign,
 } from "lucide-react";
 import {
   sentimentHistory,
@@ -39,12 +39,6 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-
-function getSentimentColor(score: number) {
-  if (score >= 0.6) return "text-emerald-400";
-  if (score >= 0.4) return "text-yellow-400";
-  return "text-red-400";
-}
 
 function TrendIcon({ trend }: { trend: "up" | "stable" | "down" }) {
   if (trend === "up") return <TrendingUp className="h-3.5 w-3.5 text-emerald-400" />;
@@ -68,7 +62,10 @@ export default function DashboardPage() {
   const currentSentiment = sentimentHistory[sentimentHistory.length - 1].score;
   const prevSentiment = sentimentHistory[sentimentHistory.length - 2].score;
   const sentimentChange = currentSentiment - prevSentiment;
-  const top5Themes = themes.slice(0, 5);
+  const top5Themes = [...themes].sort((a, b) => b.arr_impact - a.arr_impact).slice(0, 5);
+  const totalArrAtRisk = themes
+    .filter((t) => t.classification === "pain_point" || t.classification === "churn_risk")
+    .reduce((sum, t) => sum + t.arr_impact, 0);
 
   return (
     <div className="space-y-8">
@@ -124,12 +121,12 @@ export default function DashboardPage() {
         <Card>
           <CardContent className="pt-6">
             <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-purple-500/10">
-                <Target className="h-5 w-5 text-purple-400" />
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-red-500/10">
+                <DollarSign className="h-5 w-5 text-red-400" />
               </div>
               <div>
-                <p className="text-2xl font-bold">{quickStats.active_themes}</p>
-                <p className="text-xs text-muted-foreground">Active Themes</p>
+                <p className="text-2xl font-bold">${(totalArrAtRisk / 1000000).toFixed(1)}M</p>
+                <p className="text-xs text-muted-foreground">ARR at Risk</p>
               </div>
             </div>
           </CardContent>
@@ -266,8 +263,8 @@ export default function DashboardPage() {
         {/* Top 5 Themes */}
         <Card className="col-span-2">
           <CardHeader>
-            <CardTitle className="text-base">Top Themes</CardTitle>
-            <CardDescription>Ranked by relevance score</CardDescription>
+            <CardTitle className="text-base">Top Themes by ARR Impact</CardTitle>
+            <CardDescription>Ranked by revenue at risk, not volume</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-3">
@@ -302,15 +299,11 @@ export default function DashboardPage() {
                       </div>
                     </div>
                     <div className="flex flex-col items-end gap-0.5">
-                      <span
-                        className={`text-xs font-medium ${getSentimentColor(
-                          theme.avg_sentiment
-                        )}`}
-                      >
-                        {(theme.avg_sentiment * 100).toFixed(0)}%
+                      <span className="text-xs font-bold text-amber-400">
+                        ${(theme.arr_impact / 1000000).toFixed(1)}M
                       </span>
                       <span className="text-[10px] text-muted-foreground">
-                        {theme.feedback_count} items
+                        {theme.affected_accounts} accounts · {theme.feedback_count} items
                       </span>
                     </div>
                   </div>
