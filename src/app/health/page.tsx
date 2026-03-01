@@ -1,5 +1,3 @@
-"use client";
-
 import {
   Card,
   CardContent,
@@ -20,12 +18,7 @@ import {
   Activity,
   Zap,
 } from "lucide-react";
-import {
-  pipelineRuns,
-  evalMetrics,
-  costTracker,
-  ingestionStatus,
-} from "@/lib/mock-data";
+import { getHealthData } from "@/lib/data";
 
 function statusIcon(status: string) {
   if (status === "success" || status === "healthy")
@@ -70,7 +63,10 @@ function formatDuration(start: string, end: string) {
   return `${remainingSeconds}s`;
 }
 
-export default function HealthPage() {
+export default async function HealthPage() {
+  const { pipelineRuns, evalMetrics, costTracker, ingestionStatus } =
+    await getHealthData();
+
   const totalProcessed = pipelineRuns.reduce(
     (sum, r) => sum + r.items_processed,
     0
